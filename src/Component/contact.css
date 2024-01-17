@@ -1,0 +1,79 @@
+.card {
+  perspective: 120rem;
+  position: relative;
+  height: 18rem;
+  width: 14rem;
+  margin: 1rem;
+  box-shadow: none;
+  background: none;
+  columns: 5;
+}
+
+.card-side {
+  height: 18rem;
+  border-radius: 15px;
+  transition: all 0.8s ease;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 14rem;
+  display: flex;
+  justify-content: center;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.card-side.back {
+  transform: rotateY(-180deg);
+  background-color: #4158d0;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
+
+.card-side.front {
+  background-color: #0093e9;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+}
+
+.card:hover .card-side.front {
+  transform: rotateY(180deg);
+}
+
+.card:hover .card-side.back {
+  transform: rotateY(0deg);
+}
+
+.parent {
+  height: 100%;
+  width: 100%;
+  /* display: flex;
+  flex-wrap: wrap;  Allow flex items to wrap to the next row 
+  justify-content: start; Optional: Adjust as needed 
+  align-items: start; */
+
+  justify-content: center;
+  display: grid;
+  grid: 1;
+  grid-auto-columns: auto;
+  grid-template-areas: "a a a a";
+  gap: 50px;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 10%,
+    #c850c0 50%,
+    #ffcc70 70%
+  );
+  transition: all 0.8s ease;
+}
+
+body {
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 10%,
+    #c850c0 50%,
+    #ffcc70 70%
+  );
+}
