@@ -33,16 +33,16 @@ li {
   color: purple;
 }
 
-.anch a {
+.anch span {
   margin-right: 1rem;
   padding: 0.25rem;
 }
 
-.anch a {
+.anch span {
   font-weight: 500;
 }
 
-.anch a:hover {
+.anch span:hover {
   color: rgb(53, 0, 128);
   cursor: pointer;
 }
@@ -294,8 +294,8 @@ input:active {
   display: flex;
   margin: auto;
   gap: 3rem;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .about img {

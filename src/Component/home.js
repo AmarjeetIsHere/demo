@@ -65,13 +65,22 @@ function Home() {
       <div className="nav mb-[2px] flex justify-between drop-shadow-md">
         <div className="flex items-center">
           <img className="logo" src={logo} alt="logo"></img>
-          <a className="font-semibold text-[#5d0f91]">Name</a>
+          {/* <a href="/contact" className="font-semibold text-[/contact5d0f91]">
+            Name
+          </a> */}
+          <span className="font-semibold text-[#5d0f91]">Name</span>
         </div>
         <div className="flex items-center justify-between mr-2 anch w-auto">
-          <a className="text-color-purple">Home</a>
-          <a>About Us</a>
-          <a>Shop Now</a>
-          <a>Get Involved</a>
+          {/* <a href="/contact" className="text-color-purple">
+            Home
+          </a>
+          <a href="/contact">About Us</a>
+          <a href="/contact">Shop Now</a>
+          <a href="/contact">Get Involved</a> */}
+          <span className="text-color-purple">Home</span>
+          <span>About Us</span>
+          <span>Shop Now</span>
+          <span>Get Involved</span>
           <button className="py-1 text-[#5d0f91] font-medium border-2 border-solid border-[#5d0f91] rounded px-2">
             Sign Up
           </button>
@@ -88,16 +97,16 @@ function Home() {
       </div>
       <div className="social flex">
         <div className="social-container">
-          <img src={instagram}></img> <label>Instagram</label>
+          <img src={instagram} alt="instagram"></img> <label>Instagram</label>
         </div>
         <div className="social-container">
-          <img src={facebook}></img> <label>Facebook</label>
+          <img src={facebook} alt="facebook"></img> <label>Facebook</label>
         </div>
         <div className="social-container">
-          <img src={youtube}></img> <label>Youtube</label>
+          <img src={youtube} alt="youtube"></img> <label>Youtube</label>
         </div>
         <div className="social-container">
-          <img src={twitter}></img> <label>Twitter</label>
+          <img src={twitter} alt="twitter"></img> <label>Twitter</label>
         </div>
       </div>
       <div className="profile-container">
