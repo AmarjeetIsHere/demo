@@ -283,11 +283,11 @@ input:active {
 
 .about {
   color: white;
-  background-color: rgb(100, 100, 100);
-  height: 50vh;
+  background-color: rgb(86, 86, 86);
+  height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .about > div {
@@ -296,6 +296,16 @@ input:active {
   gap: 3rem;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.about > div:nth-child(1) {
+  justify-content: space-between;
+  align-items: unset;
+  display: grid;
+  grid: 1;
+  gap: 150px;
+  grid-template-areas: "a a a a";
+  font-size: larger;
 }
 
 .about img {

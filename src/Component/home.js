@@ -255,34 +255,36 @@ function Home() {
             <p className="text-3xl">Name</p>
           </div>
           <div>
-            <div className="text-2xl">Contact Us</div>
+            <div className="text-3xl">Contact Us</div>
             <div className="flex flex-col items-start w-[200px] ">
-              <div className="mt-3">
+              <div className="mt-6">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </div>
-              <div className="mt-3">+91-0000000000</div>
-              <div className="mt-3">https://www.influencer.in/</div>
+              <div className="mt-6">+91-0000000000</div>
+              <div className="mt-6">https://www.influencer.in/</div>
             </div>
           </div>
           <div className="">
-            <div className="text-2xl">Quick Links</div>
+            <div className="text-3xl">Quick Links</div>
             <div className="flex flex-col">
-              <div className="mt-3"> Home </div>
-              <div className="mt-3">About Us</div>
-              <div className="mt-3">Shop Now</div>
-              <div className="mt-3">Get Involved</div>
+              <div className="mt-6"> Home </div>
+              <div className="mt-6">About Us</div>
+              <div className="mt-6">Shop Now</div>
+              <div className="mt-6">Get Involved</div>
             </div>
           </div>
           <div>
-            <div className="text-2xl">Follow Us</div>
-            <div className="flex mt-5">
+            <div className="text-3xl">Follow Us</div>
+            <div className="flex mt-6">
               <img src={instagram} alt="instagram"></img>
               <img src={facebook} alt="facebook"></img>
               <img src={twitter} alt="twitter"></img>
             </div>
           </div>
         </div>
-        <div>Design by World Tech Solutions</div>
+        <div>
+          Design by World Tech Solutions and Build by Amarjeet
+        </div>
       </div>
       <ToastContainer />
     </div>
