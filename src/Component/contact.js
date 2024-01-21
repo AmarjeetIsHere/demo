@@ -6,32 +6,50 @@ const Contact = () => {
   const [data, setData] = useState(undefined);
 
   async function getMessages() {
-    // fetch("http://localhost:4000/media/messages", {
-    //   method: "GET",
-    // }).then((res) => {
-    //   console.log(res);
-    // });
-
-    const res = await axios.get("http://localhost:4000/media/messages");
-    console.log(res.data);
-    if (res) {
-      setData(res.data);
+    try {
+      const res = await axios.get("http://localhost:4000/media/messages");
+      if (res) {
+        setData(res.data);
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
   useEffect(() => {
-    if (!data) {
-      getMessages();
+    try {
+      if (!data) {
+        getMessages();
+      }
+    } catch (error) {
+      console.log(error);
     }
   }, [data]);
+
+  async function deleteCard(ind, id) {
+    // await axios.delete(`http://localhost:4000/media/${id}`);
+    data.splice(ind, 1);
+    setData([...data]);
+  }
 
   return (
     <>
       <div className="parent" id="parent">
         {data &&
-          data.map((item) => (
-            <div className="card" key={item._id}>
+          data.map((item, index) => (
+            <div
+              className={`card ${item.removing ? "fade-out" : ""}`}
+              key={item._id}
+            >
               <div className="card-side back p-2">
+                <span
+                  onClick={() => {
+                    deleteCard(index, item._id);
+                  }}
+                >
+                  {" "}
+                  x{" "}
+                </span>
                 <div className="mx-auto p-2">
                   <div>Name: {item.name}</div>
                   <div>Phone: {item.phone}</div>

@@ -9,6 +9,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 // import photo from "./photo3.webp";
 
 function Home() {
@@ -38,37 +39,61 @@ function Home() {
   // }
 
   async function handleSubmit(values, actions) {
-    fetch("http://localhost:4000/media/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    })
-      .then((res) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:4000/media/contact",
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (res) {
+        toast.success("Your Message Recieved");
         actions.resetForm({
           name: "",
           email: "",
           phone: "",
           message: "",
         });
-        toast.success("Your Message Recieved");
-      })
-      .catch((error) => console.log(error));
-    // console.log(values, actions);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error.message);
+    }
+  }
 
-    // setData({});
+  function scrollToSection(target) {
+    const targetElement = document.querySelector(target);
+    console.log(target);
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop;
+
+      // Scroll smoothly to the target section
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
   }
 
   return (
     <div className="App">
-      <div className="nav mb-[2px] flex justify-between drop-shadow-md">
+      <div
+        id="navbar"
+        className="nav mb-[2px] flex justify-between drop-shadow-md"
+      >
         <div className="flex items-center">
           <img className="logo" src={logo} alt="logo"></img>
-          {/* <a href="/contact" className="font-semibold text-[/contact5d0f91]">
+          {/* <a className="font-semibold text-[#5d0f91]">Name</a> */}
+          <span
+            onClick={() => {
+              scrollToSection("#about");
+            }}
+            className="font-semibold text-[#5d0f91]"
+          >
             Name
-          </a> */}
-          <span className="font-semibold text-[#5d0f91]">Name</span>
+          </span>
         </div>
         <div className="flex items-center justify-between mr-2 anch w-auto">
           {/* <a href="/contact" className="text-color-purple">
@@ -86,7 +111,7 @@ function Home() {
           </button>
         </div>
       </div>
-      <div className="photo flex items-center">
+      <div id="photo" className="photo flex items-center">
         <div className="ml-[5rem]">
           <p className="t1">BlossomBoost</p>
           <p className="t2">
@@ -95,7 +120,7 @@ function Home() {
           <p className="t3">Know More</p>
         </div>
       </div>
-      <div className="social flex">
+      <div id="social" className="social flex">
         <div className="social-container">
           <img src={instagram} alt="instagram"></img> <label>Instagram</label>
         </div>
@@ -109,7 +134,7 @@ function Home() {
           <img src={twitter} alt="twitter"></img> <label>Twitter</label>
         </div>
       </div>
-      <div className="profile-container">
+      <div id="profile" className="profile-container">
         <div className="pb-[5rem] text-6xl mb-10">
           {" "}
           Top Profile Of This Week
@@ -138,7 +163,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="photo2 flex items-center">
+      <div id="photo2" className="photo2 flex items-center">
         <div className="ml-[5rem]">
           <p className="tn1">About Us</p>
           <p className="tn2">
@@ -153,7 +178,7 @@ function Home() {
           <p className="tn3">Know More</p>
         </div>
       </div>
-      <div className="profile-container2">
+      <div id="profile2" className="profile-container2">
         <div className="pb-[5rem] text-6xl"> Plan</div>
         <div className="profile2 flex">
           <div>
@@ -184,7 +209,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="contact">
+      <div id="contact" className="contact">
         <div className="text-2xl font-semibold">Contact Us</div>
         <Formik
           initialValues={initialValues}
@@ -244,7 +269,7 @@ function Home() {
         </Formik>
       </div>
 
-      <div className="about">
+      <div id="about" className="about">
         <div className="flex">
           <div className="mt-10">
             <img
@@ -282,9 +307,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div>
-          Design by World Tech Solutions and Build by Amarjeet
-        </div>
+        <div>Design by World Tech Solutions and Build by Amarjeet</div>
       </div>
       <ToastContainer />
     </div>

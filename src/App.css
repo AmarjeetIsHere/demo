@@ -332,6 +332,16 @@ input:active {
   border: 3px solid #5f2787;
 }
 
+body {
+  height: 100%;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 10%,
+    #c850c0 50%,
+    #ffcc70 70%
+  );
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
